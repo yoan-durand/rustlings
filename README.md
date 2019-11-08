@@ -31,6 +31,16 @@ curl -L https://git.io/rustlings | bash -s mypath/
 
 This will install Rustlings and give you access to the `rustlings` command. Run it to get started!
 
+## Windows
+
+You can run:
+
+```ps
+Invoke-WebRequest https://git.io/rustlings-win | Select-Object -ExpandProperty Content | Out-File $env:TMP/install_rustlings.ps1; Unblock-File $env:TMP/install_rustlings.ps1; Invoke-Expression $env:TMP/install_rustlings.ps1
+```
+
+To install Rustlings. Same as on MacOS/Linux, you will have access to the `rustlings` command after it.
+
 ## Manually
 
 Basically: Clone the repository, checkout to the latest tag, run `cargo install`.
@@ -38,7 +48,7 @@ Basically: Clone the repository, checkout to the latest tag, run `cargo install`
 ```bash
 git clone https://github.com/rust-lang/rustlings
 cd rustlings
-git checkout tags/1.0.0 # or whatever the latest version is (find out at https://github.com/rust-lang/rustlings/releases/latest)
+git checkout tags/1.4.1 # or whatever the latest version is (find out at https://github.com/rust-lang/rustlings/releases/latest)
 cargo install --force --path .
 ```
 
