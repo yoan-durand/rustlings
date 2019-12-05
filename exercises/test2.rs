@@ -7,8 +7,6 @@
 // you think each value is. That is, add either `string_slice` or `string`
 // before the parentheses on each line. If you're right, it will compile!
 
-// I AM NOT DONE
-
     #[test]
     fn returns_twice_of_positive_numbers() {
         assert_eq!(times_two(4), 8);
@@ -30,7 +28,7 @@ fn main() {
     ("red".to_string());
     (String::from("hi"));
     ("rust is fun!".to_owned());
-    ("nice weather".into());
+    ("nice weather".to_string());
     (format!("Interpolation {}", "Station"));
     (&String::from("abc")[0..1]);
     ("  hello there ".trim());
