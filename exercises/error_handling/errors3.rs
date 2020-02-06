@@ -4,17 +4,19 @@
 // Why not? What should we do to fix it?
 // Execute `rustlings hint errors3` for hints!
 
-
+use std::num::IntErrorKind;
 use std::num::ParseIntError;
 
-fn main() -> Result<i32, ParseIntError>{
+fn main() -> Result<i32, ParseIntError> {
     let mut tokens = 100;
     let pretend_user_input = "8";
 
     let cost = total_cost(pretend_user_input)?;
 
     if cost > tokens {
-        Err(String::from("You can't afford that many!"))
+        Err(ParseIntError {
+            kind: IntErrorKind::Underflow,
+        })
     } else {
         tokens -= cost;
         Ok(tokens)
@@ -27,6 +29,6 @@ pub fn total_cost(item_quantity: &str) -> Result<i32, ParseIntError> {
     let qty = item_quantity.parse::<i32>();
     match qty {
         Ok(qty) => Ok(qty * cost_per_item + processing_fee),
-        Err(e) => Err(e)
+        Err(e) => Err(e),
     }
 }
