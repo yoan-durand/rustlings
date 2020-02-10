@@ -4,7 +4,6 @@
 // Why not? What should we do to fix it?
 // Execute `rustlings hint errors3` for hints!
 
-use std::num::IntErrorKind;
 use std::num::ParseIntError;
 
 fn main() -> Result<i32, ParseIntError> {
@@ -14,9 +13,7 @@ fn main() -> Result<i32, ParseIntError> {
     let cost = total_cost(pretend_user_input)?;
 
     if cost > tokens {
-        Err(ParseIntError {
-            kind: IntErrorKind::Underflow,
-        })
+        panic!("Not cool bro, not cool")
     } else {
         tokens -= cost;
         Ok(tokens)
